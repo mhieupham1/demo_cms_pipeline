@@ -5,7 +5,7 @@ services:
         build:
             context: .
             dockerfile: ./docker/php-fpm/Dockerfile
-        image: app:lastest
+        image: demo_cms_php:latest
         container_name: php
         restart: unless-stopped
         tty: true
@@ -22,7 +22,7 @@ services:
         build:
             context: .
             dockerfile: ./docker/nginx/Dockerfile
-        image: nginx:alpine
+        image: demo_cms_nginx:latest
         container_name: webserver
         restart: unless-stopped
         tty: true
