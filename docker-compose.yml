@@ -18,7 +18,10 @@ services:
         networks:
             - app-network
     #Nginx Service
-    webserver:
+    nginx:
+        build:
+            context: .
+            dockerfile: ./docker/nginx/Dockerfile
         image: nginx:alpine
         container_name: webserver
         restart: unless-stopped

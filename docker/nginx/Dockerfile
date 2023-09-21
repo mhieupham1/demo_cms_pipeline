@@ -1,5 +1,5 @@
-FROM nginx
+FROM nginx:alpine
 
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY /docker/nginx/conf.d/ /etc/nginx/conf.d
 
 CMD ["nginx", "-g", "daemon off;"]
