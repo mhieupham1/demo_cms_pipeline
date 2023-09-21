@@ -20,3 +20,4 @@ artifacts:
   files:
     - '**/*'
     - '.env'
+    - 'vendor'
