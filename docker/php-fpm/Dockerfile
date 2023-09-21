@@ -45,14 +45,12 @@ RUN chmod 777 -R storage && \
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-RUN composer install --no-dev
-
 # Copy existing application directory permissions
 COPY --chown=www:www . /var/www
 
 # Change current user to www
 USER www
-
+RUN composer install --no-dev
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
 CMD ["php-fpm"]
