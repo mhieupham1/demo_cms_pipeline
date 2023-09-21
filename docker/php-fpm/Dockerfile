@@ -32,10 +32,11 @@ RUN docker-php-ext-install gd
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-ENV COMPOSER_ALLOW_SUPERUSER=1
-RUN composer install --no-dev
+
 # Copy existing application directory contents
 COPY . /var/www
+
+RUN composer install
 
 RUN chmod 777 -R storage && \
     chmod 777 -R bootstrap
