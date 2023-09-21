@@ -40,6 +40,13 @@ RUN useradd -u 1000 -ms /bin/bash -g www www
 # Copy existing application directory contents
 COPY . /var/www
 
+RUN chmod 777 -R storage && \
+    chmod 777 -R bootstrap
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
+RUN composer install --no-dev
+
 # Copy existing application directory permissions
 COPY --chown=www:www . /var/www
 
