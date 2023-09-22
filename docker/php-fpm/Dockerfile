@@ -38,6 +38,16 @@ COPY . /var/www
 
 RUN composer install
 
+COPY .env.example .env
+
+RUN php artisan key:generate --force; \
+        php artisan migrate; \
+        php artisan db:seed; \
+        php artisan cache:clear; \
+        php artisan config:cache; \
+        php artisan route:cache; \
+        php artisan storage:link; \
+
 RUN chmod 777 -R storage && \
     chmod 777 -R bootstrap
 
