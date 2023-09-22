@@ -16,6 +16,7 @@ services:
         volumes:
             - ./:/var/www
             - /var/www/vendor
+            - /var/www/storage
         networks:
             - app-network
     #Nginx Service
