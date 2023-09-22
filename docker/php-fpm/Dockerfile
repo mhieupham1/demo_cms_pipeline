@@ -38,7 +38,8 @@ COPY . /var/www
 
 RUN composer install
 
-RUN chmod 777 -R storage
+RUN chmod 777 -R storage && \
+    chmod 777 -R bootstrap
 
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000

@@ -17,6 +17,7 @@ services:
             - ./:/var/www
             - /var/www/vendor
             - /var/www/storage
+            - /var/www/bootstrap
         networks:
             - app-network
     #Nginx Service
